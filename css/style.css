@@ -631,17 +631,32 @@ footer {
     padding: 0;
     width: 30px;
     height: 30px;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-btn:hover {
+    fill: rgba(33, 150, 243, 1);
+    border: 1px solid rgba(33, 150, 243, 1);
 }
 .modal-input {
     width: 100%;
     margin-top: 4px;
     margin-bottom: 10px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-input:required {
+    border-color: #f44336;
 }
 textarea {
     resize: none;
     width: 100%;
     margin-top: 4px;
     margin-bottom: 20px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+textarea:hover,
+textarea:focus-within {
+    border: 1px solid rgba(33, 150, 243, 1);
 }
 .modal-title {
     font-weight: 700;
@@ -689,6 +704,7 @@ textarea {
     width: 18px;
     height: 18px;
     fill: rgba(33, 33, 33, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-item-relative {
     position: relative;
@@ -698,4 +714,56 @@ textarea {
     top: 50%;
     left: 12px;
     transform: translate(-50%, -25%);
+    padding: 10px;
+}
+.modal-item-relative:hover .modal-svg,
+.modal-item-relative:focus .modal-svg {
+    fill: rgba(33, 150, 243, 1);
+}
+.modal-item-relative:hover .modal-input,
+.modal-item-relative:focus-within .modal-input {
+    border-color: rgba(33, 150, 243, 1);
+}
+.footer-form {
+    margin-left: 93px;
+}
+.footer-form-title {
+    font-weight: 700;
+    font-size: inherit;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent-text-color);
+}
+.footer-form-sign {
+    height: 50px;
+    width: 358px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: transparent;
+    margin-top: 20px;
+    padding: 15px;
+}
+.footer-form-btn {
+    background-color: rgba(33, 150, 243, 1);
+    height: 50px;
+    width: 200px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.87;
+    letter-spacing: 0.06em;
+    color: var(--accent-text-color);
+    position: relative;
+}
+.footer-form-svg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 13px;
+    right: 20px;
 }

@@ -452,6 +452,12 @@
                             </a>
                         </li>
                     </ul>
+                    <form>
+                        <label for="text">текст</label>
+                        <input type="text" id="text" style="margin-top: 30px" />
+                        <input type="text" style="margin-top: 30px" />
+                        <input type="text" style="margin-top: 30px" />
+                    </form>
                 </div>
             </section>
         </main>
@@ -530,6 +536,22 @@
                         </li>
                     </ul>
                 </div>
+                <form class="footer-form">
+                    <h3 class="footer-form-title">Подпишитесь на рассылку</h3>
+                    <input
+                        type="text"
+                        name="sign"
+                        id="sign"
+                        class="footer-form-sign"
+                        placeholder="E-mail"
+                    />
+                    <button type="submit" class="footer-form-btn">
+                        Подписаться
+                        <svg class="footer-form-svg">
+                            <use href="./images/sprite.svg#icon-send"></use>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </footer>
         <div class="backdrop is-hidden" data-modal>
@@ -543,6 +565,7 @@
                     Оставьте свои данные, мы вам перезвоним
                 </h2>
                 <form class="modal-form">
+                    <label for="visa"></label>
                     <div class="modal-item-relative">
                         <svg class="modal-svg">
                             <use href="./images/sprite.svg#icon-person"></use>
@@ -550,7 +573,7 @@
                         <label for="name" class="modal-item">Имя</label>
                         <input
                             type="text"
-                            name=""
+                            name="name"
                             id="name"
                             class="modal-input modal-name"
                         />
@@ -561,7 +584,7 @@
                         <svg class="modal-svg">
                             <use href="./images/sprite.svg#icon-phone"></use>
                         </svg>
-                        <input type="tel" class="modal-input" />
+                        <input type="tel" name="fon" class="modal-input" />
                     </div>
 
                     <div class="modal-item-relative">
@@ -569,7 +592,7 @@
                             <use href="./images/sprite.svg#icon-email"></use>
                         </svg>
                         <label class="modal-item">Почта </label>
-                        <input type="email" class="modal-input" />
+                        <input type="email" name="email" class="modal-input" />
                     </div>
 
                     <label for="modal-desc">Комментарий</label>
@@ -594,7 +617,7 @@
                         <a href="#" class="modal-contract">Условия договора</a>
                     </label>
                     <div class="modal-btn-center">
-                        <button type="button" class="modal-btn">
+                        <button type="submit" class="modal-btn">
                             Отправить
                         </button>
                     </div>
