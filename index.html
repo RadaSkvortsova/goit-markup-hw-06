@@ -538,6 +538,7 @@
                         id="sign"
                         class="footer-form-sign"
                         placeholder="E-mail"
+                        required
                     />
                     <button type="submit" class="footer-form-btn">
                         Подписаться
@@ -555,59 +556,78 @@
                         <use href="./images/sprite.svg#icon-close"></use>
                     </svg>
                 </button>
-                <h2 class="modal-title">
+                <p class="modal-title">
                     Оставьте свои данные, мы вам перезвоним
-                </h2>
+                </p>
                 <form class="modal-form">
-                    <label for="visa"></label>
+                    <label for="name" class="modal-item">Имя</label>
+
                     <div class="modal-item-relative">
-                        <svg class="modal-svg">
-                            <use href="./images/sprite.svg#icon-person"></use>
-                        </svg>
-                        <label for="name" class="modal-item">Имя</label>
                         <input
                             type="text"
                             name="name"
                             id="name"
                             class="modal-input modal-name"
+                            minlength="2"
+                            pattern="[a-zA-Zа-яёА-ЯЁ]+"
+                            title="Имя должно содержать символы кирилицы или латиницы"
                         />
+                        <svg class="modal-svg">
+                            <use href="./images/sprite.svg#icon-person"></use>
+                        </svg>
                     </div>
 
+                    <label class="modal-item">Телефон</label>
+
                     <div class="modal-item-relative">
-                        <label class="modal-item">Телефон</label>
+                        <input
+                            type="tel"
+                            name="fon"
+                            class="modal-input"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                            title="096-000-00-00"
+                            required
+                        />
                         <svg class="modal-svg">
                             <use href="./images/sprite.svg#icon-phone"></use>
                         </svg>
-                        <input type="tel" name="fon" class="modal-input" />
                     </div>
 
+                    <label class="modal-item">Почта </label>
+
                     <div class="modal-item-relative">
+                        <input
+                            type="email"
+                            name="email"
+                            class="modal-input"
+                            required
+                        />
                         <svg class="modal-svg">
                             <use href="./images/sprite.svg#icon-email"></use>
                         </svg>
-                        <label class="modal-item">Почта </label>
-                        <input type="email" name="email" class="modal-input" />
                     </div>
 
-                    <label for="modal-desc">Комментарий</label>
+                    <label for="modal-desc" class="modal-item"
+                        >Комментарий</label
+                    >
 
                     <textarea
                         name="modal-form-desc"
                         id="modal-desc"
-                        cols="30"
-                        rows="10"
                         placeholder="Введите текст"
+                        class="message"
                     ></textarea
                     ><br />
 
-                    <label class="chek">
-                        <input
-                            type="checkbox"
-                            name="hobby"
-                            value="reading"
-                            checked
-                        />
-                        Соглашаюсь с рассылкой и принимаю
+                    <input
+                        type="checkbox"
+                        id="hobby"
+                        name="hobby"
+                        value="reading"
+                        class="check-input visually-hidden"
+                    />
+                    <label for="hobby" class="check"
+                        >Соглашаюсь с рассылкой и принимаю
                         <a href="#" class="modal-contract">Условия договора</a>
                     </label>
                     <div class="modal-btn-center">

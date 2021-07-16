@@ -634,35 +634,60 @@ footer {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
         border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.close-btn:hover {
+.close-btn:hover,
+.close-btn:focus {
     fill: rgba(33, 150, 243, 1);
     border: 1px solid rgba(33, 150, 243, 1);
 }
 .modal-input {
     width: 100%;
+    height: 40px;
+    border: 1px solid;
+    border-color: rgba(33, 33, 33, 0, 2);
+    padding-left: 42px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 4px;
-    margin-bottom: 10px;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
 }
-.modal-input:required {
-    border-color: #f44336;
+.modal-input:focus {
+    outline: none;
+    border-color: rgba(33, 150, 243, 1);
 }
-textarea {
+.modal-input:focus + .modal-svg {
+    fill: rgba(33, 150, 243, 1);
+}
+
+.message {
     resize: none;
     width: 100%;
+    height: 120px;
     margin-top: 4px;
     margin-bottom: 20px;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid;
+    border-color: rgba(33, 33, 33, 0, 2);
+    border-radius: 4px;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 16px;
 }
-textarea:hover,
-textarea:focus-within {
-    border: 1px solid rgba(33, 150, 243, 1);
+.message:focus {
+    border-color: rgba(33, 150, 243, 1);
+    outline: none;
+}
+
+.message::placeholder {
+    font-size: inherit;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
 }
 .modal-title {
     font-weight: 700;
     font-size: 20px;
     line-height: 1.15;
     letter-spacing: 0.03em;
+    margin-bottom: 12px;
 }
 .modal-item {
     font-size: inherit;
@@ -670,14 +695,37 @@ textarea:focus-within {
     letter-spacing: 0.01em;
     color: #757575;
 }
-.chek {
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-    color: #757575;
+
+/* ++ стили для чекбокса */
+.check-input:checked + .check::before {
+    background-image: url(../images/icon-check.svg);
+    border: none;
 }
+
+.check-input:focus + .check::before {
+    outline: none;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.check::before {
+    display: block;
+    content: '';
+    width: 16px;
+    height: 15px;
+    border: 1px solid #303030;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* -- стили для чекбокса */
+
 .modal-btn {
-    margin-top: 30px;
     width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -694,6 +742,7 @@ textarea:focus-within {
 .modal-btn-center {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 .modal-contract {
     text-decoration: none;
@@ -703,26 +752,17 @@ textarea:focus-within {
 .modal-svg {
     width: 18px;
     height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
     fill: rgba(33, 33, 33, 1);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-item-relative {
     position: relative;
-}
-.modal-svg {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translate(-50%, -25%);
-    padding: 10px;
-}
-.modal-item-relative:hover .modal-svg,
-.modal-item-relative:focus .modal-svg {
-    fill: rgba(33, 150, 243, 1);
-}
-.modal-item-relative:hover .modal-input,
-.modal-item-relative:focus-within .modal-input {
-    border-color: rgba(33, 150, 243, 1);
+    margin-top: 4px;
+    margin-bottom: 10px;
 }
 .footer-form {
     margin-left: 93px;
@@ -739,7 +779,6 @@ textarea:focus-within {
     height: 50px;
     width: 358px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
     border-radius: 4px;
     background-color: transparent;
@@ -760,11 +799,13 @@ textarea:focus-within {
     color: var(--accent-text-color);
     position: relative;
     margin-left: 12px;
+    text-align: start;
+    padding-left: 29px;
 }
 .footer-form-svg {
     width: 24px;
     height: 24px;
     position: absolute;
     top: 13px;
-    right: 20px;
+    right: 28px;
 }
